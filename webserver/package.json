@@ -1,0 +1,25 @@
+{
+  "name": "knoparking",
+  "version": "1.0.0",
+  "description": "Modules for KnoParking project",
+  "main": "index.js",
+  "dependencies": {
+    "Server": "^1.0.0",
+    "base64-img": "^1.0.4",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "image-convert": "^0.1.33",
+    "net": "^1.0.2",
+    "package.json": "^2.0.1",
+    "path": "^0.12.7",
+    "raw-socket": "^1.6.4",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ishan Jain",
+  "license": "ISC"
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>KnoParking</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="Design.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    .bar,h1,button {font-family: "Montserrat", sans-serif}
+    .fa-anchor,.fa-coffee {font-size:200px}
+</style>
+
+<body>
+
+<!-- Navigation Bar -->
+<div class="top">
+    <div class="wbar red card left-align large">
+        <a class="bar-item button hide-medium hide-large right padding-large hover-white large red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="index.html" class="bar-item button padding-large white">Home</a>
+        <a href="Overview.html" class="bar-item button padding-large white">Overview</a>
+        <a href="Slot%201.html" class="bar-item button padding-large white">Parking Slot 1</a>
+        <a href="Slot%202.html" class="bar-item button padding-large white">Parking Slot 2</a>
+        <a href="Slot%203.html" class="bar-item button padding-large white">Parking Slot 3</a>
+        <a href="About.html" class="bar-item button padding-large white">About Us</a>
+    </div>
+</div>
+
+<!-- First Grid -->
+<div class="row-padding padding-64 container">
+    <div class="content">
+        <div class="twothird">
+            <h1>Parking Slot 2</h1>
+            <h4 class="padding-32" id="license1"></h4>
+            <p class="padding-32" id="status1"></p>
+            <img id="image1">
+            <script>
+                const image = document.getElementById('image1');
+                image.style.border = "thick solid #020026";
+                image.src = "image2.png";
+
+                function readLicense(file) {
+                    var rawFile = new XMLHttpRequest(); // XMLHttpRequest (often abbreviated as XHR) is a browser object accessible in JavaScript that provides data in XML, JSON, but also HTML format, or even a simple text using HTTP requests.
+                    rawFile.open("GET", file, false); // open with method GET the file with the link file ,  false (synchronous)
+                    rawFile.onreadystatechange = function () {
+                        if (rawFile.readyState === 4) // readyState = 4: request finished and response is ready
+                        {
+                            if (rawFile.status === 200) // status 200: "OK"
+                            {
+                                var allText = rawFile.responseText; //  Returns the response data as a string
+                                console.log(allText); // display text on the console
+                                document.getElementById('license1').innerHTML = "License Plate: " + allText;
+
+
+                            }
+                        }
+                    }
+                    rawFile.send(null); //Sends the request to the server Used for GET requests with param null
+
+                }
+                readLicense("license2.txt");
+
+                function readStatus(file) {
+                    var rawFile = new XMLHttpRequest(); // XMLHttpRequest (often abbreviated as XHR) is a browser object accessible in JavaScript that provides data in XML, JSON, but also HTML format, or even a simple text using HTTP requests.
+                    rawFile.open("GET", file, false); // open with method GET the file with the link file ,  false (synchronous)
+                    rawFile.onreadystatechange = function () {
+                        if (rawFile.readyState === 4) // readyState = 4: request finished and response is ready
+                        {
+                            if (rawFile.status === 200) // status 200: "OK"
+                            {
+                                var allText = rawFile.responseText; //  Returns the response data as a string
+                                if (allText.includes("1")) {
+                                    document.getElementById('status1').innerHTML = "Car is already parked";
+                                } else if (allText.includes("0")) {
+                                    document.getElementById('status1').innerHTML = "Car is not parked";
+                                    document.getElementById('status1').style.color = "#ff5722";
+                                }
+                                console.log(allText); // display text on the console
+                            }
+                        }
+                    }
+                    rawFile.send(null); //Sends the request to the server Used for GET requests with param null
+
+                }
+
+                readStatus("status2.txt");
+            </script>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

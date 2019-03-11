@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>KnoParking</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="Design.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    .bar,h1,button {font-family: "Montserrat", sans-serif}
+    .fa-anchor,.fa-coffee {font-size:200px}
+</style>
+
+<body>
+
+<!-- Navigation Bar -->
+<div class="top">
+    <div class="wbar red card left-align large">
+        <a class="bar-item button hide-medium hide-large right padding-large hover-white large red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="index.html" class="bar-item button padding-large white">Home</a>
+        <a href="Overview.html" class="bar-item button padding-large white">Overview</a>
+        <a href="Slot%201.html" class="bar-item button padding-large white">Parking Slot 1</a>
+        <a href="Slot%202.html" class="bar-item button padding-large white">Parking Slot 2</a>
+        <a href="Slot%203.html" class="bar-item button padding-large white">Parking Slot 3</a>
+        <a href="About.html" class="bar-item button padding-large white">About Us</a>
+    </div>
+</div>
+
+<!-- Header -->
+<header class="container red center" style="padding:128px 16px">
+    <h1 class="margin jumbo">Kno Parking:</h1>
+    <h5 class="xlarge">Uses HTML, Java, Javascript, and CSS</h5>
+    <div id="down">
+    </div>
+
+</header>
+
+<!-- First Grid -->
+<div class="row-padding padding-64 container">
+    <div class="content">
+        <div class="twothird">
+            <h1></h1>
+            <h2 class="padding-32">What is KnoParking?</h2>
+            <h5>A program with complex architecture that detects motion via a ESP8266 with a HCSR04 Motion Detector. Once motion is detected, buffered images are sent to a Web Server where a packet is sent back to the Rasberry Pi. The Rasberry Pi captures a photo using the Camera Module. Finally, it is sent back to the server. The server the buffered images to a Node JS server that is being ran on a third program. Via sockets, the website could be wrapped with a Java program, however, it is not preferable because the client machine would need to run programs in two separate IDEs. Using a raw socket server implementation, the website can be populated with images of a security breach!</h5>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>
